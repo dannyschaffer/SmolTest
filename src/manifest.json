@@ -1,0 +1,43 @@
+{
+  "manifest_version": 2,
+  "name": "Webpage Video Recorder",
+  "version": "1.0",
+  "description": "An extension to record scrolling webpages and overlay a secondary video.",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "https://www.googleapis.com/"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["main.js"]
+    }
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "options_page": "options.html",
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "web_accessible_resources": [
+    "libs/puppeteer.js",
+    "libs/ffmpeg.js",
+    "libs/googleSheetsAPI.js",
+    "libs/googleCloudStorage.js",
+    "libs/selenium.js",
+    "libs/openCV.js"
+  ]
+}
